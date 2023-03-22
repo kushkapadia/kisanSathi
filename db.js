@@ -10,7 +10,7 @@ async function start() {
   //Export the connection
   module.exports = client.db();
   const app = require("./app");
-  app.listen(4000);
+  app.listen(process.env.PORT);
 }
 
 start();
