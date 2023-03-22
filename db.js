@@ -1,0 +1,16 @@
+const { MongoClient } = require("mongodb");
+
+const dotenv = require('dotenv')
+dotenv.config()
+const client = new MongoClient(process.env.CONNECTIONSTRING)
+
+async function start() {
+  await client.connect();
+  console.log("Connected");
+  //Export the connection
+  module.exports = client.db();
+  const app = require("./app");
+  app.listen(4000);
+}
+
+start();
