@@ -3,9 +3,10 @@ const express= require('express')
 const router = express.Router()
 const farmerController = require('./controllers/farmerController')
 const sellerController = require('./controllers/sellerController')
-const chatController = require('./controllers/chatController.js')
-
-
+const chatController = require('./controllers/chatController')
+const requestController = require('./controllers/requestController')
+const rentItemController = require('./controllers/rentItemController')
+const rentController = require('./controllers/rentItemController')
 
 //endpoint api //hit
 router.get('/', farmerController.home)
@@ -19,8 +20,18 @@ router.post('/login-farmer', farmerController.login)
 router.get('/login-page-seller', sellerController.displayLoginPage)
 router.get('/register-page-seller', sellerController.displayRegisterPage)
 
+router.post('/ask-for-availability/:id', requestController.request)
 
-
+// router.get('/all-pending-requests', requestController.getAllPendingRequest)
+router.post('/change-request-status/:id', requestController.changeStatus)
+router.post('/lease-item', rentItemController.leaseItem )
+router.get('/ask-rent-form/:id', requestController.displayRequestForm)
+router.get('/lender-form', farmerController.displayLenderForm)
+router.get('/pending-requests', requestController.displayPendingRequestsPage)
+router.get('/qr-reader-page', function(req, res){
+    res.render('farmer/qr-code-reader')
+})
+router.get('/rent-qr-code/:id', rentController.dsiplayQrCode)
 
 router.get('/chat/:id', function(req, res){
     console.log(req.params.id)
@@ -34,4 +45,8 @@ router.get('/allFarmers', farmerController.getAllFarmers)
 //test - chat - routes
 router.post("/send-chat", chatController.sendChat)
 router.get('/get-current-texts/:senderId/:recieverId', chatController.getCurrentTexts)
+
+router.post('/testing', function(req, res){
+   console.log(req.body)
+})
 module.exports = router

@@ -4,7 +4,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require('connect-flash')
 const fileUpload = require('express-fileupload')
-
+const path = require('path')
 
 const app = express();
 
@@ -43,6 +43,7 @@ app.set("view engine", "ejs");
 //ejs- embeded js templating
 
 
+
 app.use(function(req, res, next) {
   // make our markdown function available from within ejs templates
   // res.locals.filterUserHTML = function(content) {
@@ -60,6 +61,7 @@ app.use(function(req, res, next) {
   res.locals.user = req.session.user
   next()
 })
+
 
 
 app.use("/", router);
