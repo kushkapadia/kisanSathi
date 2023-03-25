@@ -15,18 +15,7 @@
          </div>
       </div>
       <div class="iq-header-img">
-         <img src="/assets/images/dashboard/top-header.png" alt="header"
-            class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
-         <img src="/assets/images/dashboard/top-header1.png" alt="header"
-            class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
-         <img src="/assets/images/dashboard/top-header2.png" alt="header"
-            class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
-         <img src="/assets/images/dashboard/top-header3.png" alt="header"
-            class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
-         <img src="/assets/images/dashboard/top-header4.png" alt="header"
-            class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
-         <img src="/assets/images/dashboard/top-header5.png" alt="header"
-            class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
+         <img src="/assets/images/cover.jpg" alt="header">
       </div>
    </div> <!-- Nav Header Component End -->
    <!--Nav End-->
@@ -60,7 +49,7 @@
                         <a href="/market-place">
                            <div class="card-body">
                               <div class="progress-widget">
-                                    <h4 class="card-title">Marketplace</h4>
+                                 <h4 class="card-title">Marketplace</h4>
                               </div>
                            </div>
                         </a>
@@ -92,7 +81,7 @@
                <div class="overflow-hidden d-slider1 ">
                   <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
                      <% rentItems.forEach((rentItem)=>{ %>
-                        <% if(rentItem.itemCategory == "storageHouse"){ %>
+                        <% if(rentItem.itemCategory=="storageHouse" ){ %>
 
                            <li class="swiper-slide card card-slide" style="width: 18rem;">
                               <img src="/uploads/<%=rentItem.rentItemPhoto%>" class="card-img-top" alt="...">
@@ -109,31 +98,31 @@
                                  <a href="/ask-rent-form/<%=rentItem._id%>" class="btn btn-success">Rent</a>
                               </div>
                            </li>
-                        <% } %>
-                           <% }) %>
-      
+                           <% } %>
+                              <% }) %>
+
                </div>
             </div>
          </div>
 
-      <!-- <div class="col-md-12 col-lg-8">
+         <!-- <div class="col-md-12 col-lg-8">
       <div class="row">
          <div class="col-md-12">
             <div class="card" data-aos="fade-up" data-aos-delay="800">
                <div class="flex-wrap card-header d-flex justify-content-between align-items-center"> -->
-      <div class="header-title">
-         <a href="">
-            <h4 class="card-title">Equipments</h4>
-         </a>
-         <p class="mb-0"></p>
-      </div>
-      <div class="row">
-         <div class="col-md-12 col-lg-12">
-            <div class="row row-cols-1">
-               <div class="overflow-hidden d-slider1 ">
-                  <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
-                     <% rentItems.forEach((rentItem)=>{ %>
-                        <% if(rentItem.itemCategory == "tools"){ %>
+         <div class="header-title">
+            <a href="">
+               <h4 class="card-title">Equipments</h4>
+            </a>
+            <p class="mb-0"></p>
+         </div>
+         <div class="row">
+            <div class="col-md-12 col-lg-12">
+               <div class="row row-cols-1">
+                  <div class="overflow-hidden d-slider1 ">
+                     <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
+                        <% rentItems.forEach((rentItem)=>{ %>
+                           <% if(rentItem.itemCategory=="tools" ){ %>
 
                            <li class="swiper-slide card card-slide" style="width: 18rem;">
                               <img src="/uploads/<%=rentItem.rentItemPhoto%>" class="card-img-top" alt="...">
@@ -154,23 +143,23 @@
                         <% } %>
                            <% }) %>
 
+                  </div>
                </div>
             </div>
-         </div>
 
-         <div class="header-title">
-            <a href="">
-               <h4 class="card-title">Machinaries</h4>
-            </a>
-            <p class="mb-0"></p>
-         </div>
-         <div class="row">
-            <div class="col-md-12 col-lg-12">
-               <div class="row row-cols-1">
-                  <div class="overflow-hidden d-slider1 ">
-                     <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
-                        <% rentItems.forEach((rentItem)=>{ %>
-                        <% if(rentItem.itemCategory =="machinery"){ %>
+            <div class="header-title">
+               <a href="">
+                  <h4 class="card-title">Machinaries</h4>
+               </a>
+               <p class="mb-0"></p>
+            </div>
+            <div class="row">
+               <div class="col-md-12 col-lg-12">
+                  <div class="row row-cols-1">
+                     <div class="overflow-hidden d-slider1 ">
+                        <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
+                           <% rentItems.forEach((rentItem)=>{ %>
+                              <% if(rentItem.itemCategory=="machinery" ){ %>
 
                            <li class="swiper-slide card card-slide" style="width: 18rem;">
                               <img src="/uploads/<%=rentItem.rentItemPhoto%>" class="card-img-top" alt="...">
@@ -191,9 +180,9 @@
                            <% }) %>
                     
 
+                     </div>
                   </div>
                </div>
-            </div>
 
             <div class="header-title">
                <a href="">
@@ -229,10 +218,10 @@
 
 
 
+                        </div>
                      </div>
                   </div>
+
                </div>
-             
-            </div>
-      
-            <%- include('../includes/footer-farmer.ejs') %>
+
+               <%- include('../includes/footer-farmer.ejs') %>
