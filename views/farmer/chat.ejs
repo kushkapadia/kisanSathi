@@ -63,7 +63,7 @@
 
 
 
-        /** This is the css of the input **/
+        /* This is the css of the input */
         #w-input-container {
             min-height: 20px;
             box-sizing: border-box;
@@ -131,9 +131,15 @@
             <!-- loader END -->
             <span class="screen-darken"></span>
             <main class="main-content">
-                <!--Nav Start-->
-                <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
-                    <div class="container-fluid navbar-inner">
+               <!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      Bootstrap
+    </a>
+  </nav>
+                <!-- <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
+                    <div class="container-fluid">
                         <button data-trigger="navbar_main" class="d-lg-none btn btn-primary rounded-pill p-1 pt-0"
                             type="button">
                             <svg width="20px" height="20px" viewBox="0 0 24 24">
@@ -142,22 +148,22 @@
                             </svg>
                         </button>
                         <a href="../dashboard/index.html" class="logo-center navbar-brand col-md-3 col-lg-3 ms-0">
-                            <!--Logo start-->
-                            <img src="/hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="User-Profile"
+                            
+                            <img src="/assets/images/avatars/01.png" alt="User-Profile"
                                 class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
-                            <!--logo End-->
+                       
                             <h4 class="logo-title">Person1</h4>
                         </a>
 
 
 
-                        <!-- Horizontal Menu Start -->
+                        
                         <nav id="navbar_main"
                             class="mobile-offcanvas nav navbar navbar-expand-xl hover-nav horizontal-nav mx-md-auto">
                             <div class="container-fluid">
                                 <div class="offcanvas-header px-0">
                                     <div class="navbar-brand ms-0">
-                                        <!--Logo start-->
+                                       
                                         <svg width="30" class="text-primary" viewBox="0 0 30 30" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2"
@@ -169,97 +175,46 @@
                                             <rect x="10.5562" y="-0.556152" width="28" height="4" rx="2"
                                                 transform="rotate(45 10.5562 -0.556152)" fill="currentColor" />
                                         </svg>
-                                        <!--logo End-->
+                                   
                                         <h4 class="logo-title">Hope UI</h4>
                                     </div>
                                     <button class="btn-close float-end"></button>
                                 </div>
 
-                            </div> <!-- container-fluid.// -->
+                            </div> 
                         </nav>
 
 
 
-                        <!-- Sidebar Menu End -->
-
+                      
 
                     </div>
-                </nav> <!--Nav End-->
-                <div class="conatiner-fluid content-inner pb-0" style="height: 15rem;">
-                    <div style="overflow-y:auto; overflow-x:hidden; height: 30rem; width:auto">
-                        <div class="row">
-                            <div class="container">
-                                <img src="hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="Avatar">
-                                <p>Hello. How are you today?</p>
-                                <span class="time-right">11:00</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="container darker">
-                                <img src="hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="Avatar"
-                                    class="right">
-                                <p>Hey! I'm fine. Thanks for asking!</p>
-                                <span class="time-left">11:01</span>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="container">
-                                <img src="hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="Avatar">
-                                <p>Sweet! So, what do you wanna do today?</p>
-                                <span class="time-right">11:02</span>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="container darker">
-                                <img src="hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="Avatar"
-                                    class="right">
-                                <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-                                <span class="time-left">11:05</span>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="container darker">
-                                <img src="hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="Avatar"
-                                    class="right">
-                                <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-                                <span class="time-left">11:05</span>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="container darker">
-                                <img src="hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="Avatar"
-                                    class="right">
-                                <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-                                <span class="time-left">11:05</span>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="container darker">
-                                <img src="hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="Avatar"
-                                    class="right">
-                                <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-                                <span class="time-left">11:05</span>
-                            </div>
-                        </div>
+                </nav>  -->
+                <!--Nav End-->
+                <input id="senderId" type="hidden" value="<%=user._id%>">
+                <input id="rId" type="hidden" value="<%=rId%>">
+                <div class=" conatiner-fluid content-inner p-1" style="height:35rem; width:auto;">
+                    <div class="conatiner-fluid" id="chat-history" style="overflow-y:auto; overflow-x:hidden; height: 28rem;">
+                     
                     </div>
 
                     <div class="row mt-2">
-                        <div class="input-group">
-                            <textarea name="" class="form-control type_msg" id="#w-input-container"
-                                placeholder="Type your message..."></textarea>
+                        <form id="chat-form-send">
+                        <div class="form-control input-group">
+                            
+                            <input type="text" id="chatBody" name="" class="form-control type_msg" id="#w-input-container"
+                             rows="1"   placeholder="Type your message...">
                             <div class="input-group-append">
                                 <button class="btn btn-success" id="sendBtn">Send
                                 </button>
+                                </div>
+                                
+                            
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-        </div>
+                </div>
         
         </body>
         <!-- <div class="btn-download">
@@ -277,4 +232,5 @@
                 </a>
             </div> -->
         <!-- Footer Section Start -->
+        <script src="/main-bundled.js"></script>
         <%- include('../includes/footer-farmer.ejs') %>
