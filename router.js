@@ -20,6 +20,15 @@ router.post('/login-farmer', farmerController.login)
 router.get('/login-page-seller', sellerController.displayLoginPage)
 router.get('/register-page-seller', sellerController.displayRegisterPage)
 
+
+router.get('/market-place', function (req,res){
+    res.render("farmer/market-place");
+})
+
+router.get('/market-item-profile', function (req,res){
+    res.render("farmer/market-item-profile");
+})
+
 router.post('/ask-for-availability/:id', requestController.request)
 
 // router.get('/all-pending-requests', requestController.getAllPendingRequest)
