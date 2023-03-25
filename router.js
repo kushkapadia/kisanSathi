@@ -44,13 +44,13 @@ router.get('/rent-qr-code/:id', rentController.dsiplayQrCode)
 
 router.get('/chat/:id', function(req, res){
     console.log(req.params.id)
-    res.render('chat',{
+    res.render('farmer/chat',{
         rId : req.params.id 
     })
 })
 
 router.get('/allFarmers', farmerController.getAllFarmers)
-
+router.get('/view-item/:id', rentItemController.displayItemProfile )
 //test - chat - routes
 router.post("/send-chat", chatController.sendChat)
 router.get('/get-current-texts/:senderId/:recieverId', chatController.getCurrentTexts)

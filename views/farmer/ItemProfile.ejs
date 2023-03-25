@@ -1,0 +1,115 @@
+<%- include('../includes/header-farmer.ejs') %>
+       
+       
+       <!-- Nav Header Component Start -->
+          <div class="iq-navbar-header" style="height: 215px;">
+              <div class="container-fluid iq-container">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="flex-wrap d-flex justify-content-between align-items-center">
+                              <div>
+                                  <h1>More about this Item...</h1>
+                                  
+                              </div>
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="iq-header-img">
+                  <img src="./assets/images/dashboard/top-header.png" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="./assets/images/dashboard/top-header1.png" alt="header" class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="./assets/images/dashboard/top-header2.png" alt="header" class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="./assets/images/dashboard/top-header3.png" alt="header" class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="./assets/images/dashboard/top-header4.png" alt="header" class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="./assets/images/dashboard/top-header5.png" alt="header" class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
+              </div>
+          </div>          <!-- Nav Header Component End -->
+        <!--Nav End-->
+      </div>
+      <div class="conatiner-fluid content-inner mt-n5 py-0">
+      <div class="row">
+        <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/uploads/<%=rentItem.rentItemPhoto%>" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Tool 1/Machinary 1/Attachment 1</h5>
+                  <p class="card-text">Rent per day:   </p>
+                  <p class="card-text">Deposit     :   </p>
+                  <p class="card-text">Owner       :   </p>
+                  <p class="card-text"><small class="text-body-secondary">*Note: If item is found damaged, money will be deducted from the deposit amount.</small></p>
+                  <a class="btn btn-success" href="#" role="button">Rent</a>
+                  <a class="btn btn-primary" href="/chat/<%=rentItem.lenderId%>" role="button">Chat</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="card mb-3">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">Description:</p>
+          <p class="card-text">hahahah this is the description of idk what tool</p>
+          <p class="card-text">Address: fsdkgdhgljglgsgsngdlhnhlgsnslkgfnaslfgs</p>
+
+
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      </div>
+      
+
+
+
+      
+            
+      <div class="offcanvas offcanvas-bottom share-offcanvas" tabindex="-1" id="share-btn" aria-labelledby="shareBottomLabel">
+         <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="shareBottomLabel">Share</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+         </div>
+         <div class="offcanvas-body small">
+            <div class="d-flex flex-wrap align-items-center">
+               <div class="text-center me-3 mb-3">
+                  <img src="./assets/images/brands/08.png" class="img-fluid rounded mb-2" alt="">
+                  <h6>Facebook</h6>
+               </div>
+               <div class="text-center me-3 mb-3">
+                  <img src="./assets/images/brands/09.png" class="img-fluid rounded mb-2" alt="">
+                  <h6>Twitter</h6>
+               </div>
+               <div class="text-center me-3 mb-3">
+                  <img src="./assets/images/brands/10.png" class="img-fluid rounded mb-2" alt="">
+                  <h6>Instagram</h6>
+               </div>
+               <div class="text-center me-3 mb-3">
+                  <img src="./assets/images/brands/11.png" class="img-fluid rounded mb-2" alt="">
+                  <h6>Google Plus</h6>
+               </div>
+               <div class="text-center me-3 mb-3">
+                  <img src="./assets/images/brands/13.png" class="img-fluid rounded mb-2" alt="">
+                  <h6>In</h6>
+               </div>
+               <div class="text-center me-3 mb-3">
+                  <img src="./assets/images/brands/12.png" class="img-fluid rounded mb-2" alt="">
+                  <h6>YouTube</h6>
+               </div>
+            </div>
+         </div>
+      </div>      </div>
+      <div class="btn-download">
+          <a class="btn btn-success px-3 py-2" href="https://iqonic.design/product/admin-templates/hope-ui-admin-free-open-source-bootstrap-admin-template/" target="_blank" >
+              <svg class="icon-24"  width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.4" d="M17.554 7.29614C20.005 7.29614 22 9.35594 22 11.8876V16.9199C22 19.4453 20.01 21.5 17.564 21.5L6.448 21.5C3.996 21.5 2 19.4412 2 16.9096V11.8773C2 9.35181 3.991 7.29614 6.438 7.29614H7.378L17.554 7.29614Z" fill="currentColor"></path>
+                  <path d="M12.5464 16.0374L15.4554 13.0695C15.7554 12.7627 15.7554 12.2691 15.4534 11.9634C15.1514 11.6587 14.6644 11.6597 14.3644 11.9654L12.7714 13.5905L12.7714 3.2821C12.7714 2.85042 12.4264 2.5 12.0004 2.5C11.5754 2.5 11.2314 2.85042 11.2314 3.2821L11.2314 13.5905L9.63742 11.9654C9.33742 11.6597 8.85043 11.6587 8.54843 11.9634C8.39743 12.1168 8.32142 12.3168 8.32142 12.518C8.32142 12.717 8.39743 12.9171 8.54643 13.0695L11.4554 16.0374C11.6004 16.1847 11.7964 16.268 12.0004 16.268C12.2054 16.268 12.4014 16.1847 12.5464 16.0374Z" fill="currentColor"></path>
+              </svg>
+          </a>
+      </div>
+      <!-- Footer Section Start -->
+      
+<%- include('../includes/footer-farmer.ejs') %>
+      

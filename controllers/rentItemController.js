@@ -37,3 +37,12 @@ exports.updateRentStatus = async function(req, res){
   res.send("Completed")
   }
 }
+
+
+exports.displayItemProfile = async function(req, res){
+    let rentItem = new RentItem()
+   let rentItemDoc = await rentItem.getItemById(req.params.id)
+    res.render('farmer/itemProfile', {
+        rentItem: rentItemDoc
+    })
+}

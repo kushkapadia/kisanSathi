@@ -37,4 +37,6 @@ let itemDoc = await rentItemsCollection.findOne({_id: new ObjectId(itemId)})
 return itemDoc
 }
 
+
+
 module.exports = RentItem;
