@@ -57,4 +57,24 @@ router.get('/get-current-texts/:senderId/:recieverId', chatController.getCurrent
 
 //API for QR code 
 router.post('/update-rent-status', rentController.updateRentStatus)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.get('/published-items', function(req, res){
+res.render("farmer/published-items")
+})
+
 module.exports = router

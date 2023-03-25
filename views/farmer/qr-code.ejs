@@ -1,49 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-    .qr-code{
-   
-        border-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-       margin-left:20px;      
-    }
-</style>
-</head>
-<body>
-    <div id="rent-qr"></div>
-    <h2>My Qr Code</h2>
-    <input type="text" value="<%=rentId%>"  id="id">
-    <div  class="qr-code" ></div> 
-</body>
-</html>
+<%- include('../includes/header-farmer.ejs') %>
+    <div class="iq-navbar-header" style="height: 215px;">
+        <div class="container-fluid iq-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flex-wrap d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1>QR Code</h1>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="iq-header-img">
+            <img src="/assets/images/dashboard/top-header.png" alt="header"
+                class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="/assets/images/dashboard/top-header1.png" alt="header"
+                class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="/assets/images/dashboard/top-header2.png" alt="header"
+                class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="/assets/images/dashboard/top-header3.png" alt="header"
+                class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="/assets/images/dashboard/top-header4.png" alt="header"
+                class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="/assets/images/dashboard/top-header5.png" alt="header"
+                class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
+        </div>
+    </div> <!-- Nav Header Component End -->
+    <style>
+        .qr-code {
+
+            border-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            margin-left: 20px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="conatiner-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" style="height: 450px;">
+                        <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="d-flex flex-wrap align-items-center justify-content-center">
+                                <div class="card ">
+                                    <h2 class="card-title">Rent QR</h2>
+                                    <div class="qr-code"></div>
+                                    <input type="text" value="<%=rentId%>" id="id" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
 
 
 
-<script src="/assets/js/hope-ui.js" defer></script>
+    <script src="/assets/js/hope-ui.js" defer></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script>
-   
-    generate();
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
 
-function generate() {
-    let _id = document.querySelector("#id").value
+        generate();
 
-    var qrcode = new QRCode(document.querySelector(".qr-code"), {
-        text: `${_id}`,
-       
-        width: 180, //default 128
-        height: 180,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
-    });
-} 
-</script>
+        function generate() {
+            let _id = document.querySelector("#id").value
+
+            var qrcode = new QRCode(document.querySelector(".qr-code"), {
+                text: `${_id}`,
+
+                width: 300, //default 128
+                height: 300,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        } 
+    </script>
+
+    <%- include('../includes/footer-farmer.ejs') %>
