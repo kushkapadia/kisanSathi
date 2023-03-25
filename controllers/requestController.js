@@ -63,3 +63,54 @@ exports.displayPendingRequestsPage = async function(req, res){
     pendingRequests: pendingRequests
   })
 }
+
+
+
+
+
+exports.getRequestsByDate = async function(req, res){
+  console.log("Hittttt")
+  let request = new Request()
+let requestsByDate = await  request.getRequestsByDate(req.body.date, req.body.itemId)
+let flag = 0
+for(i=0; i< requestsByDate.length; i++){
+
+// console.log(requestsByDate[i].fromDate.getTime())
+
+
+  if(requestsByDate[i].toDate.getTime() > new Date(req.body.date.fromDate).getTime()){
+     if(      requestsByDate[i].fromDate.getTime() > new Date(req.body.date.fromDate).getTime()  ){
+
+      if(requestsByDate[i].fromDate.getTime() > new Date(req.body.date.toDate).getTime()){
+          console.log("free1")
+          flag=1
+          res.send("free")
+          break;
+      } else{
+          flag=1
+
+      console.log("booked1")
+      console.log("")
+      // console.log("You have : " + requestsByDate[i].title + "from: " +  requestsByDate[i].fromDate + "-" + requestsByDate[i].toDate)
+      res.send("booked")
+      break;
+      }
+     
+     } else{
+      flag=1
+
+      console.log("booked2")
+      console.log("You have : " + requestsByDate[i].title + "from: " +  requestsByDate[i].fromDate + "-" + requestsByDate[i].toDate)
+
+      res.send("booked")
+      break;
+     }
+  }
+
+}
+
+if(flag ==0){
+  console.log("free2")
+  res.send("free")
+}
+}

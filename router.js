@@ -54,7 +54,15 @@ router.get('/view-item/:id', rentItemController.displayItemProfile )
 //test - chat - routes
 router.post("/send-chat", chatController.sendChat)
 router.get('/get-current-texts/:senderId/:recieverId', chatController.getCurrentTexts)
+router.post('/logout', function(req, res){
+    req.session.destroy(function(){
+        res.redirect('/')
+    })
+  
+})
 
+
+router.post('/getRequestByDate', requestController.getRequestsByDate)
 //API for QR code 
 router.post('/update-rent-status', rentController.updateRentStatus)
 
