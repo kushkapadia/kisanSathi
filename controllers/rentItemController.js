@@ -2,6 +2,7 @@ const RentItem = require ('../models/RentItem')
 const fileUpload = require('express-fileupload')
 const path = require('path')
 const Rent = require('../models/Rent')
+const Farmer = require('../models/Farmer')
 
 exports.leaseItem = async function(req, res){
 
@@ -31,18 +32,25 @@ exports.updateRentStatus = async function(req, res){
   let rentDoc = await  rent.getRentById(req.body.rentId)
   if(rentDoc.rentStatus == "notStarted"){
     await rent.changeStatusToStarted(req.body.rentId)
-  res.send("Started")
+  res.json("started")
+
+
   } else{
   await  rent.changeStatusToCompleted(req.body.rentId)
-  res.send("Completed")
+  res.json("completed")
+
+
   }
 }
 
 
 exports.displayItemProfile = async function(req, res){
     let rentItem = new RentItem()
+    let farmer = new Farmer()
    let rentItemDoc = await rentItem.getItemById(req.params.id)
+   let farmerDoc = await farmer.getFarmerById(rentItemDoc.lenderId)
     res.render('farmer/itemProfile', {
-        rentItem: rentItemDoc
+        rentItem: rentItemDoc,
+        lender:farmerDoc
     })
 }

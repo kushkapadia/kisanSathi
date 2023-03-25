@@ -28,8 +28,17 @@
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({rentId: decodedText})
-  }).then((response)=>{
-    console.log(response.body)
+  }).then(async (response)=>{
+ let data = await response.json()
+    console.log(data)
+   if(data == "started"){
+    location.replace('/')
+
+   } else if(data == "completed"){
+    alert("Completed~!")
+    location.replace('/')
+
+   }
   });
               
               

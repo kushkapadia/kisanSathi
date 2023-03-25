@@ -114,3 +114,11 @@ if(flag ==0){
   res.send("free")
 }
 }
+
+
+
+exports.getMyApprovedRequests = async function(req, res){
+  let request = new Request()
+  let approvedReqs = await request.getMyApprovedRequests(req.session.user._id)
+  res.json(approvedReqs)
+}
