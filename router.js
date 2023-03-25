@@ -70,4 +70,27 @@ router.get('/published-items', function(req, res){
 res.render("farmer/published-items")
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.get('/borrower-res-page', function(req, res){
+res.render("farmer/borrower-res-page")
+})
 module.exports = router
