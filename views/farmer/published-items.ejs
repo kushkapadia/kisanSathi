@@ -50,27 +50,39 @@
                                         <th>Rent Per Day</th>
                                         <th>Deposit</th>
                                         <th>Quantity</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody style="text-align: center;">
+  <% rentItems.forEach((rentItem)=>{ %>
+    <tr>
+        <td>
+            <%=rentItem.itemCategory%>
+        </td>
+        <td>
+            <%=rentItem.itemName%>
+            
+        </td>
+        <td>
+            <%=rentItem.rentPerDay%>
+          
+        </td>
+        <td>
+            <%=rentItem.rentDeposit%>
+        
+        </td>
+        <td>
+          <%=rentItem.itemQuantity %>
+        </td>
+        <td>
+          <form action="" method="POST">
+            <button type="submit" class="btn btn-danger">Stop</button>
+          </form>
+        </td>
+    </tr>
+  <% }) %>
                                  
-                                        <tr>
-                                            <td>
-                                                
-                                            </td>
-                                            <td>
-                                                
-                                            </td>
-                                            <td>
-                                              
-                                            </td>
-                                            <td>
-                                            
-                                            </td>
-                                            <td>
-                                              
-                                            </td>
-                                        </tr>
+                                
                                    
                                 </tbody>
 

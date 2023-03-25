@@ -69,9 +69,7 @@ router.post('/getRequestByDate', requestController.getRequestsByDate)
 //API for QR code 
 router.post('/update-rent-status', rentController.updateRentStatus)
 
-router.get('/published-items', function(req, res){
-res.render("farmer/published-items")
-})
+router.get('/published-items', rentItemController.displayLeasedItems)
 
 router.get('/getMyApprovedRequests', requestController.getMyApprovedRequests)
 

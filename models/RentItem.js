@@ -19,7 +19,8 @@ RentItem.prototype.cleanUp = function(){
         address: this.data.address,
         rentItemPhoto : this.data.itemPhotoName,
         itemCategory: this.data.itemCategory,
-        itemAddDate : new Date()
+        itemAddDate : new Date(),
+        status: "displayForLease"
     }
 }
 
@@ -39,6 +40,11 @@ let itemDoc = await rentItemsCollection.findOne({_id: new ObjectId(itemId)})
 return itemDoc
 }
 
+RentItem.prototype.getLeasedItems = async function(id){
+    //also search if status is displayForLease
+let rentItems = await rentItemsCollection.find({lenderId: new ObjectId(id)}).toArray()
+return rentItems
+}
 
 
 module.exports = RentItem;

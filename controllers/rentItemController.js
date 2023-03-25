@@ -54,3 +54,12 @@ exports.displayItemProfile = async function(req, res){
         lender:farmerDoc
     })
 }
+
+
+exports.displayLeasedItems = async function(req, res){
+  let rentItem=new RentItem()
+ let rentItems = await rentItem.getLeasedItems(req.session.user._id)
+res.render('farmer/published-items', {
+  rentItems: rentItems
+})
+}
