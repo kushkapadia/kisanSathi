@@ -1,31 +1,70 @@
 <%- include('../includes/header-farmer.ejs') %>
+   <script>
+      function updateFields() {
+         var selectValue = document.getElementById("itemCategory").value;
+         switch (selectValue) {
+            case "machinery":
+               document.getElementById("itemQuantity").style.display = "block";
+               document.getElementById("itemName").style.display = "block";
+               document.getElementById("sqFeets").style.display = "none";
+               break;
+            case "storageHouse":
+               document.getElementById("itemQuantity").style.display = "none";
+               document.getElementById("itemName").style.display = "none";
+               document.getElementById("sqFeets").style.display = "block";
+               break;
+            case "tools":
+               document.getElementById("itemQuantity").style.display = "block";
+               document.getElementById("itemName").style.display = "block";
+               document.getElementById("sqFeets").style.display = "none";
+               break;
 
-<!-- Nav Header Component Start -->
-          <div class="iq-navbar-header" style="height: 215px;">
-              <div class="container-fluid iq-container">
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="flex-wrap d-flex justify-content-between align-items-center">
-                              <div>
-                                  <h1>Rent your Item</h1>
-                                  <!-- <p>We are on a mission to help developers like you build successful projects for FREE.</p> -->
-                              </div>
-                          </div>
-                      </div>
+            case "attachments":
+               document.getElementById("itemQuantity").style.display = "block";
+               document.getElementById("itemName").style.display = "block";
+               document.getElementById("sqFeets").style.display = "none";
+               break;
+
+            default:
+               document.getElementById("itemQuantity").style.display = "block";
+               document.getElementById("itemName").style.display = "block";
+               document.getElementById("sqFeets").style.display = "none";
+               break;
+         }
+      }
+   </script>
+   <!-- Nav Header Component Start -->
+   <div class="iq-navbar-header" style="height: 215px;">
+      <div class="container-fluid iq-container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="flex-wrap d-flex justify-content-between align-items-center">
+                  <div>
+                     <h1>Rent your Item</h1>
+                     <!-- <p>We are on a mission to help developers like you build successful projects for FREE.</p> -->
                   </div>
-              </div>
-              <div class="iq-header-img">
-                  <img src="/assets/images/dashboard/top-header.png" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="/assets/images/dashboard/top-header1.png" alt="header" class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="/assets/images/dashboard/top-header2.png" alt="header" class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="/assets/images/dashboard/top-header3.png" alt="header" class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="/assets/images/dashboard/top-header4.png" alt="header" class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="/assets/images/dashboard/top-header5.png" alt="header" class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
-              </div>
-          </div>          <!-- Nav Header Component End -->
-        <!--Nav End-->
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="conatiner-fluid content-inner mt-n5 py-0">
+      <div class="iq-header-img">
+         <img src="/assets/images/dashboard/top-header.png" alt="header"
+            class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+         <img src="/assets/images/dashboard/top-header1.png" alt="header"
+            class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
+         <img src="/assets/images/dashboard/top-header2.png" alt="header"
+            class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
+         <img src="/assets/images/dashboard/top-header3.png" alt="header"
+            class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
+         <img src="/assets/images/dashboard/top-header4.png" alt="header"
+            class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
+         <img src="/assets/images/dashboard/top-header5.png" alt="header"
+            class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
+      </div>
+   </div> <!-- Nav Header Component End -->
+   <!--Nav End-->
+   </div>
+   <div class="conatiner-fluid content-inner mt-n5 py-0">
       <div>
          <div class="row">
 
@@ -39,56 +78,68 @@
                   <div class="card-body">
                      <div class="new-user-info">
                         <form action="/lease-item" method="POST" enctype="multipart/form-data">
+
+                           <div class="form-group col-md-12">
+                              <select class="form-select" name="itemCategory" id="itemCategory"
+                                 onchange="updateFields()" required>
+                                 <option selected>Select Category</option>
+                                 <option value="machinery">Machinery</option>
+                                 <option value="storageHouse">Storage House</option>
+                                 <option value="tools">Equipment</option>
+                                 <option value="attachments">Attachments</option>
+                              </select>
+                           </div>
+
                            <div class="row">
-                              <div class="form-group col-md-6">
+                              <div class="form-group col-md-6" id="itemName">
                                  <label class="form-label" for="itemName">Name of the Item:</label>
-                                 <input type="text" name="itemName" class="form-control" id="itemName" placeholder="e.g. Harrow" required>
+                                 <input type="text" name="itemName" class="form-control" id="itemName"
+                                    placeholder="e.g. Harrow" required>
+                              </div>
+
+                              <div class="form-group col-md-6" id="sqFeets">
+                                 <label class="form-label" for="sqFeets">Area of Storage Space</label>
+                                 <input type="text" name="sqFeets" class="form-control" id="sqFeets"
+                                    placeholder="e.g. 20 square km">
                               </div>
 
                               <div class="form-group col-md-6">
-                                 <label class="form-label" for="itemName">Area of Storage Space</label>
-                                 <input type="text" name="itemName" class="form-control" id="itemName" placeholder="e.g. 20 square km" required>
+                                 <label class="form-label" for="itemName">Upload a Image:</label>
+                                 <input type="file" name="itemFile" class="form-control" id="itemFile">
                               </div>
-
-                              <div class="form-group col-md-6">
-                                <label class="form-label" for="itemName">Upload a Image:</label>
-                                <input type="file" name="itemFile" class="form-control" id="itemFile">
-                             </div>
 
                               <div class="form-group col-md-12">
                                  <label class="form-label" for="itemDescription">Description:</label>
-                                 <textarea name="itemDescription" required class="form-control" id="itemDescription" placeholder="e.g. Information about the State, Condition of the Item/Equipment"></textarea>
+                                 <textarea name="itemDescription" required class="form-control" id="itemDescription"
+                                    placeholder="e.g. Information about the State, Condition of the Item / Storage Space"></textarea>
                               </div>
 
                               <div class="form-group col-md-12">
                                  <label class="form-label" for="address">Address:</label>
-                                 <textarea name="address" required class="form-control" id="address" placeholder="Your Address ( Where to Pickup Your Item )"></textarea>
+                                 <textarea name="address" required class="form-control" id="address"
+                                    placeholder="Your Address"></textarea>
                               </div>
-         
+
                               <div class="form-group col-md-6">
                                  <label class="form-label" for="rentPerDay">Rent per Day: ₹</label>
-                                 <input type="number" min="0" name="rentPerDay"  class="form-control" id="rentPerDay" placeholder="e.g 200" required>
+                                 <input type="number" min="0" name="rentPerDay" class="form-control" id="rentPerDay"
+                                    placeholder="e.g 200" required>
                               </div>
-                              
+
                               <div class="form-group col-md-6">
+                                 <label class="form-label" for="rentDeposit">Deposit: ₹</label>
+                                 <input type="number" min="0" name="rentDeposit" class="form-control" id="rentDeposit"
+                                    placeholder="e.g 1000" required>
+                              </div>
+
+                              <div class="form-group col-md-12" id="itemQuantity">
                                  <label class="form-label" for="itemQuantity">Quantity:</label>
-                                 <input type="number" min="0" name="itemQuantity" class="form-control" id="itemQuantity" placeholder="e.g. 30" required>
+                                 <input type="number" min="0" name="itemQuantity" class="form-control" id="itemQuantity"
+                                    placeholder="e.g. 30" required>
                               </div>
 
-                            
-                              <div class="form-group col-md-12">
-                                <select class="form-select" name="itemCategory" id="itemCategory" required>
-                                    <option selected>Select Category</option>
-                                    <option value="machinery">Machinery</option>
-                                    <option value="storageHouse">Storage House</option>
-                                    <option value="tools">Equipment</option>
-                                  
-                                    
-                                  </select>
-                              </div>
-
-                           <hr>
-                           <button type="submit" class="btn btn-primary">Publish Item</button>
+                              <hr>
+                              <button type="submit" class="btn btn-primary">Publish Item</button>
                         </form>
                      </div>
                   </div>
@@ -96,9 +147,9 @@
             </div>
          </div>
       </div>
-      </div>
+   </div>
 
-      <!-- <div class="btn-download">
+   <!-- <div class="btn-download">
           <a class="btn btn-danger px-3 py-2" href="https://iqonic.design/product/admin-templates/hope-ui-admin-free-open-source-bootstrap-admin-template/" target="_blank" >
               <svg width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M5.91064 20.5886C5.91064 19.7486 6.59064 19.0686 7.43064 19.0686C8.26064 19.0686 8.94064 19.7486 8.94064 20.5886C8.94064 21.4186 8.26064 22.0986 7.43064 22.0986C6.59064 22.0986 5.91064 21.4186 5.91064 20.5886ZM17.1606 20.5886C17.1606 19.7486 17.8406 19.0686 18.6806 19.0686C19.5106 19.0686 20.1906 19.7486 20.1906 20.5886C20.1906 21.4186 19.5106 22.0986 18.6806 22.0986C17.8406 22.0986 17.1606 21.4186 17.1606 20.5886Z" fill="currentColor"></path>
@@ -106,5 +157,4 @@
               </svg>
           </a>
       </div> -->
-      <%- include('../includes/footer-farmer.ejs') %>
-     
+   <%- include('../includes/footer-farmer.ejs') %>
