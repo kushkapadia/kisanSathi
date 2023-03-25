@@ -38,4 +38,37 @@ Request.prototype.getAllPendingRequest = async function(id){
   let pendingRequests = await requestsCollection.find({lenderId: new ObjectId(id),requestStatus: "pending"}).toArray()
   return pendingRequests
 }
+
+
+
+
+Request.prototype.getRequestsByDate = async function(date, itemId){
+    //     var today = moment();
+    // var tomorrow = moment(today).add(1, 'days');
+    console.log(date)
+    
+    let requestedDate = new Date(date.fromDate);
+    requestedDate.setHours(0,0,0,0);
+    console.log("Requested Date: " + requestedDate)
+    
+    let nextDate = new Date(date.toDate);
+    nextDate.setHours(0,0,0,0);
+    console.log("OG Date: "  + nextDate)
+    
+    nextDate.setTime(nextDate.getTime() + (24*60*60*1000))
+    
+     console.log("next Date" + nextDate)
+    
+    
+    let getRequestsByDate = await requestsCollection.find({
+        "fromDate" : {"$gte": requestedDate,
+                  "$lt": nextDate }, rentItemId: new ObjectId(itemId), requestStatus: "approved"
+      }).toArray()
+    
+    
+    
+    // find({fromDate: new Date(date)}).toArray()
+    console.log(getRequestsByDate)
+    return getRequestsByDate
+    }
 module.exports = Request

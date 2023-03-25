@@ -62,8 +62,13 @@
                         // calculate rate in milliseconds
                    
                         %>
+                        <div id="status-box">
+
+                        </div>
                         <input type="hidden" id="dailyRate" value="<%=itemDoc.rentPerDay%>">
+                        <input type="hidden" id="itemId" value="<%=itemDoc._id%>">
                         <div class="col-md-6">
+                           
                            <label for="totalCost" class="form-label">Rent Amount</label>
                            <input type="number" id="totalRentingAmount" name = "totalRentingAmount" class="form-control" id="totalCost" readonly>
                            <div class="invalid-feedback">
@@ -71,7 +76,7 @@
                            </div>
                         </div>
                         <!-- <div class="col-lg-12"> -->
-                           <button class="btn btn-primary" type="submit">Request Availability</button>
+                           <button id="reqAvailability" disabled class="btn btn-primary" type="submit">Ask For rent</button>
                         <!-- </div> -->
                      </form>
                   </div>

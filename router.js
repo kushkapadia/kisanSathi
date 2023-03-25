@@ -60,6 +60,9 @@ router.post('/logout', function(req, res){
     })
   
 })
+
+
+router.post('/getRequestByDate', requestController.getRequestsByDate)
 //API for QR code 
 router.post('/update-rent-status', rentController.updateRentStatus)
 
