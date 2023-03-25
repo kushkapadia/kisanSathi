@@ -13,9 +13,11 @@ export default class Chat{
 
     events(){
 
+        
+
 window.addEventListener('load',  ()=> {
   // Your document is loaded.
-  var fetchInterval = 10000; // 5 seconds.
+  var fetchInterval = 3000; // 5 seconds.
 
   // Invoke the request every 5 seconds.
   setInterval(  this.fetchMessages, fetchInterval);
@@ -28,6 +30,11 @@ this.chatForm.addEventListener('submit',  (e)=>{
 //     this.chatHistory.innerHTML +=` <div class="spinner-border text-primary" role="status">
 //   <span class="visually-hidden">Loading...</span>
 // </div>`
+if( this.chatField.value.trim() == ""){
+    this.senderId.value =""
+}else{
+
+
 axios.post('/send-chat', {
     senderId: this.senderId.value,
     rId: this.rId.value,
@@ -36,16 +43,22 @@ axios.post('/send-chat', {
     this.chatHistory.innerHTML += `<div><p> ${this.chatField.value}</p></div>`
     this.chatField.value = ""
     this.chatField.focus()
+    this.scroll()
 }).catch((e)=>{
 
 })
-
+}
     // alert("Tested")
 })
     }
 
 
     //Methods
+
+    scroll()  { 
+        this.chatHistory.scrollTop = this.chatHistory.scrollHeight; }
+    
+
     startFetch(){
         alert("start called")
     }
@@ -55,7 +68,29 @@ axios.post('/send-chat', {
             console.log(response.data)
             this.chatHistory.innerHTML = ""
             response.data.forEach((data)=>{
-                this.chatHistory.innerHTML += `<div><p style="color: red"> ${data.messageText}</p></div>`
+                if(data.from.toString() == this.senderId.value){
+
+                    this.chatHistory.innerHTML +=  `   <div class="row">
+                    <div class="container darker">
+                        <img src="/assets/images/avatars/01.png" alt="Avatar"
+                            class="right">
+                        <p>${data.messageText}</p>
+                        <span class="time-left">11:01</span>
+                    </div>
+                </div>`
+                this.scroll()
+                } else{
+                    this.chatHistory.innerHTML +=
+ 
+                    `  <div class="row">
+                    <div class="container">
+                        <img src="/assets/images/avatars/avtar_3.png" alt="Avatar">
+                        <p> ${data.messageText}</p>
+                        <span class="time-right">${data.date}</span>
+                    </div>
+                </div>`
+                this.scroll()
+                }
             })
 
         }).catch((e)=>{

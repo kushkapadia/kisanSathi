@@ -10,7 +10,7 @@ if(document.querySelector("#test")){
 }
 
 if(document.querySelector("#chat-history")){
-    // alert("Milaa")
+    alert("Milaa")
     new Chat()
 }
 
