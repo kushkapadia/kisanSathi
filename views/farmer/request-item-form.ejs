@@ -41,17 +41,17 @@
                   </div>
                   <div class="card-body">
                      <p>Select the Date Rent the Item</p>
-                     <form action="/ask-for-availability/<%=itemDoc._id%>" method="POST" class="row g-3 needs-validation">
+                     <form id="askForRentForm" action="/ask-for-availability/<%=itemDoc._id%>" method="POST" class="row g-3 needs-validation">
                         <div class="col-md-6">
                            <label for="fromDate" class="form-label">From Date</label>
-                           <input type="date" name="fromDate" class="form-control" id="fromDate" required>
+                           <input type="datetime-local" name="fromDate" class="form-control" id="fromDate" required>
                            <div class="valid-feedback">
                               Looks good!
                            </div>
                         </div>
                         <div class="col-md-6">
                            <label for="tillDate" class="form-label">Till Date</label>
-                           <input type="date" name="toDate" class="form-control" id="tillDate" required>
+                           <input type="datetime-local" name="toDate" class="form-control" id="toDate" required>
                            <div class="valid-feedback">
                               Looks good!
                            </div>
@@ -60,12 +60,12 @@
                         const dailyRate = itemDoc.rentPerDay;
                         
                         // calculate rate in milliseconds
-                        const rateInMs = dailyRate / (24 * 60 * 60 * 1000);
                    
                         %>
+                        <input type="hidden" id="dailyRate" value="<%=itemDoc.rentPerDay%>">
                         <div class="col-md-6">
                            <label for="totalCost" class="form-label">Rent Amount</label>
-                           <input type="text" name = "totalRentingAmount" class="form-control" id="totalCost" value="<%=rateInMs%>" readonly>
+                           <input type="number" id="totalRentingAmount" name = "totalRentingAmount" class="form-control" id="totalCost" readonly>
                            <div class="invalid-feedback">
                               Please provide a valid zip.
                            </div>
@@ -83,6 +83,10 @@
       </div>
       </div>
 
+
+      <script src="/main-bundled.js">
+    
+      </script>
       <!-- <div class="btn-download">
           <a class="btn btn-danger px-3 py-2" href="https://iqonic.design/product/admin-templates/hope-ui-admin-free-open-source-bootstrap-admin-template/" target="_blank" >
               <svg width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -17,7 +17,7 @@ Request.prototype.cleanUp = function(){
     rentItemId: new ObjectId(this.data.rentItemId),
     borrowerId : new ObjectId(this.data.borrowerId),
     lenderId: new ObjectId(this.data.lenderId),
-    totalRentingAmount: Number(this.totalRentingAmount),
+    totalRentingAmount: Number(this.data.totalRentingAmount),
     requestStatus: "pending", //approved //cancelled
     requestDate: new Date()
     }

@@ -1,6 +1,7 @@
 const RentItem = require ('../models/RentItem')
 const fileUpload = require('express-fileupload')
 const path = require('path')
+const Rent = require('../models/Rent')
 
 exports.leaseItem = async function(req, res){
 
@@ -23,4 +24,16 @@ exports.dsiplayQrCode = function(req, res){
 res.render('farmer/qr-code', {
     rentId: req.params.id
 })
+}
+
+exports.updateRentStatus = async function(req, res){
+  let rent = new Rent()
+  let rentDoc = await  rent.getRentById(req.body.rentId)
+  if(rentDoc.rentStatus == "notStarted"){
+    await rent.changeStatusToStarted(req.body.rentId)
+  res.send("Started")
+  } else{
+  await  rent.changeStatusToCompleted(req.body.rentId)
+  res.send("Completed")
+  }
 }

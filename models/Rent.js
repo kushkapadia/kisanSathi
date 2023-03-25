@@ -28,12 +28,17 @@ Rent.prototype.rentItem = async function(){
    return rentId
 }
 
+Rent.prototype.getRentById = async function(rentId){
+   let rentDoc = await rentsCollection.findOne({_id: new ObjectId(rentId)})
+    return rentDoc
+}
+
 Rent.prototype.changeStatusToStarted = async function(rentId){
    await rentsCollection.findOneAndUpdate({_id:new ObjectId(rentId)}, {$set:{rentDuration: {startTime: new Date(), endTime: null}, rentStatus: "started" }})
 }
 
 Rent.prototype.changeStatusToCompleted = async function(rentId){
-   await rentsCollection.findOneAndUpdate({_id:new ObjectId(rentId)}, {$set:{"rentDuration.endTime": null, rentStatus: "completed" }})
+   await rentsCollection.findOneAndUpdate({_id:new ObjectId(rentId)}, {$set:{"rentDuration.endTime": new Date(), rentStatus: "completed" }})
 }
 
 module.exports = Rent

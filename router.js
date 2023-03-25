@@ -46,7 +46,6 @@ router.get('/allFarmers', farmerController.getAllFarmers)
 router.post("/send-chat", chatController.sendChat)
 router.get('/get-current-texts/:senderId/:recieverId', chatController.getCurrentTexts)
 
-router.post('/testing', function(req, res){
-   console.log(req.body)
-})
+//API for QR code 
+router.post('/update-rent-status', rentController.updateRentStatus)
 module.exports = router

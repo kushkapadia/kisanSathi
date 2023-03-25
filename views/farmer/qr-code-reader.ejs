@@ -27,13 +27,15 @@
                 lastResult = decodedText;
                 document.getElementById("qr-reader-results").innerHTML =`<input type=hidden id="qr-result" value="${decodedText}">`
               
-    fetch('/testing', {
+    fetch('/update-rent-status', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({a: decodedText,})
+    body: JSON.stringify({rentId: decodedText})
+  }).then((response)=>{
+    console.log(response.body)
   });
               
               
