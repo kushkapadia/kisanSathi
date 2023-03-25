@@ -75,7 +75,7 @@
         }
 
         .w-input-text-group {
-            position: relative;
+            position: absolute;
         }
 
         .w-placeholder {
@@ -133,14 +133,14 @@
             <main class="main-content">
                 <!--Nav Start-->
                 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
-                    <div class="container-fluid navbar-inner">
+                    <!-- <div class="container-fluid navbar-inner">
                         <button data-trigger="navbar_main" class="d-lg-none btn btn-primary rounded-pill p-1 pt-0"
                             type="button">
                             <svg width="20px" height="20px" viewBox="0 0 24 24">
                                 <path fill="currentColor"
                                     d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
                             </svg>
-                        </button>
+                        </button> -->
                         <a href="../dashboard/index.html" class="logo-center navbar-brand col-md-3 col-lg-3 ms-0">
                             <!--Logo start-->
                             <img src="/hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="User-Profile"
@@ -185,8 +185,8 @@
 
                     </div>
                 </nav> <!--Nav End-->
-                <div class="conatiner-fluid content-inner pb-0" style="height: 15rem;">
-                    <div style="overflow-y:auto; overflow-x:hidden; height: 30rem; width:auto">
+                <div class="conatiner-fluid content-inner p-1" >
+                    <div style="overflow-y:auto; overflow-x:hidden; height:35rem; width:auto">
                         <div class="row">
                             <div class="container">
                                 <img src="hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="Avatar">
@@ -247,22 +247,23 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row mt-2">
-                        <div class="input-group">
-                            <textarea name="" class="form-control type_msg" id="#w-input-container"
-                                placeholder="Type your message..."></textarea>
-                            <div class="input-group-append">
-                                <button class="btn btn-success" id="sendBtn">Send
-                                </button>
+                    <form>
+                        <div class="row">
+                            <div class="input-group">
+                                <textarea name="" class="form-control type_msg" id="#w-input-container"
+                                    placeholder="Type your message..."></textarea>
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" id="sendBtn">Send
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
         </div>
-        
-        </body>
-        <!-- <div class="btn-download">
+
+    </body>
+    <!-- <div class="btn-download">
                 <a class="btn btn-danger px-3 py-2"
                     href="https://iqonic.design/product/admin-templates/hope-ui-admin-free-open-source-bootstrap-admin-template/"
                     target="_blank">
@@ -276,5 +277,5 @@
                     </svg>
                 </a>
             </div> -->
-        <!-- Footer Section Start -->
-        <%- include('../includes/footer-farmer.ejs') %>
+    <!-- Footer Section Start -->
+    <%- include('../includes/footer-farmer.ejs') %>
