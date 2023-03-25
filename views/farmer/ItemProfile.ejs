@@ -36,13 +36,14 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Tool 1/Machinary 1/Attachment 1</h5>
-                  <p class="card-text">Rent per day:   </p>
-                  <p class="card-text">Deposit     :   </p>
-                  <p class="card-text">Owner       :   </p>
+                  <h5 class="card-title"><%=rentItem.itemName%></h5>
+                  <p class="card-text">Rent per day: <%=rentItem.rentPerDay%>  </p>
+                  <p class="card-text">Deposit     : <%=rentItem.rentDeposit%>  </p>
+                  <p class="card-text">Owner       : <%= lender.fName + " " + lender.lName%>  </p>
                   <p class="card-text"><small class="text-body-secondary">*Note: If item is found damaged, money will be deducted from the deposit amount.</small></p>
                   <a class="btn btn-success" href="#" role="button">Rent</a>
                   <a class="btn btn-primary" href="/chat/<%=rentItem.lenderId%>" role="button">Chat</a>
+                  <a class="btn btn-secondary" href="tel:<%=lender.contactNo%>" role="button">Call</a>
                 </div>
               </div>
             </div>

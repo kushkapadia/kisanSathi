@@ -61,6 +61,9 @@ router.post('/logout', function(req, res){
   
 })
 
+router.get('/cal', function(req, res){
+    res.render('farmer/calender')
+})
 
 router.post('/getRequestByDate', requestController.getRequestsByDate)
 //API for QR code 
@@ -69,5 +72,7 @@ router.post('/update-rent-status', rentController.updateRentStatus)
 router.get('/published-items', function(req, res){
 res.render("farmer/published-items")
 })
+
+router.get('/getMyApprovedRequests', requestController.getMyApprovedRequests)
 
 module.exports = router

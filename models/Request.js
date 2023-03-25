@@ -71,4 +71,12 @@ Request.prototype.getRequestsByDate = async function(date, itemId){
     console.log(getRequestsByDate)
     return getRequestsByDate
     }
+
+
+    Request.prototype.getMyApprovedRequests = async function(id){
+        console.log(id)
+    let myReqs  =  await requestsCollection.find({lenderId: new ObjectId(id), requestStatus: "approved" }).toArray()
+    console.log("My reqs" +  myReqs)    
+    return myReqs
+    }
 module.exports = Request

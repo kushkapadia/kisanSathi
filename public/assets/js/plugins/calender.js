@@ -4,170 +4,87 @@ Author: iqonic.design
 Design and Developed by: iqonic.design
 NOTE: This file contains the all calender events.
 */
-"use strict"
+// "use strict"
+
+
+
 
 if (document.querySelectorAll('#calendar1').length) {
-  document.addEventListener('DOMContentLoaded', function () {
-    let calendarEl = document.getElementById('calendar1');
-    let calendar1 = new FullCalendar.Calendar(calendarEl, {
-      selectable: true,
-      plugins: ["timeGrid", "dayGrid", "list", "interaction"],
-      timeZone: "UTC",
-      defaultView: "dayGridMonth",
-      contentHeight: "auto",
-      eventLimit: true,
-      dayMaxEvents: 4,
-      header: {
-          left: "prev,next today",
-          center: "title",
-          right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
-      },
-      dateClick: function (info) {
-          $('#schedule-start-date').val(info.dateStr)
-          $('#schedule-end-date').val(info.dateStr)
-          $('#date-event').modal('show')
-      },
-      events: [
-        {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-20, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        },
-        {
-            title: 'All Day Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-18, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(108,117,125,0.2)',
-            textColor: 'rgba(108,117,125,1)',
-            borderColor: 'rgba(108,117,125,1)'
-        },
-        {
-            title: 'Long Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-16, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            end: moment(new Date(), 'YYYY-MM-DD').add(-13, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(8,130,12,0.2)',
-            textColor: 'rgba(8,130,12,1)',
-            borderColor: 'rgba(8,130,12,1)'
-        },
-        {
-            groupId: '999',
-            title: 'Repeating Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-14, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            color: '#047685',
-            backgroundColor: 'rgba(4,118,133,0.2)',
-            textColor: 'rgba(4,118,133,1)',
-            borderColor: 'rgba(4,118,133,1)'
-        },
-        {
-            groupId: '999',
-            title: 'Repeating Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-12, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(235,153,27,0.2)',
-            textColor: 'rgba(235,153,27,1)',
-            borderColor: 'rgba(235,153,27,1)'
-        },
-        {
-            groupId: '999',
-            title: 'Repeating Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-10, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(206,32,20,0.2)',
-            textColor: 'rgba(206,32,20,1)',
-            borderColor: 'rgba(206,32,20,1)'
-        },
-        {
-            title: 'Birthday Party',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-8, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        },
-        {
-            title: 'Meeting',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-6, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        },
-        {
-            title: 'Birthday Party',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-5, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(235,153,27,0.2)',
-            textColor: 'rgba(235,153,27,1)',
-            borderColor: 'rgba(235,153,27,1)'
-        },
-        {
-            title: 'Birthday Party',
-            start: moment(new Date(), 'YYYY-MM-DD').add(-2, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(235,153,27,0.2)',
-            textColor: 'rgba(235,153,27,1)',
-            borderColor: 'rgba(235,153,27,1)'
-        },
 
-        {
-            title: 'Meeting',
-            start: moment(new Date(), 'YYYY-MM-DD').add(0, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        },
-        {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: moment(new Date(), 'YYYY-MM-DD').add(0, 'days').format('YYYY-MM-DD') + 'T06:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        },
-        {
-            groupId: '999',
-            title: 'Repeating Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(0, 'days').format('YYYY-MM-DD') + 'T07:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        },
-        {
-            title: 'Birthday Party',
-            start: moment(new Date(), 'YYYY-MM-DD').add(0, 'days').format('YYYY-MM-DD') + 'T08:30:00.000Z',
-            backgroundColor: 'rgba(235,153,27,0.2)',
-            textColor: 'rgba(235,153,27,1)',
-            borderColor: 'rgba(235,153,27,1)'
-        },
-        {
-            title: 'Doctor Meeting',
-            start: moment(new Date(), 'YYYY-MM-DD').add(0, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(235,153,27,0.2)',
-            textColor: 'rgba(235,153,27,1)',
-            borderColor: 'rgba(235,153,27,1)'
-        },
-        {
-            title: 'All Day Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(1, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        },
-        {
-            groupId: '999',
-            title: 'Repeating Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(8, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        },
-        {
-            groupId: '999',
-            title: 'Repeating Event',
-            start: moment(new Date(), 'YYYY-MM-DD').add(10, 'days').format('YYYY-MM-DD') + 'T05:30:00.000Z',
-            backgroundColor: 'rgba(58,87,232,0.2)',
-            textColor: 'rgba(58,87,232,1)',
-            borderColor: 'rgba(58,87,232,1)'
-        }
-      ]
-  });
-  calendar1.render();
-  });
+    document.addEventListener('DOMContentLoaded', async function  () {
   
-}
+      let response= await fetch('/getMyApprovedRequests')
+  let allRequests = await response.json()
+  // console.log(allRequests)
+  
+  let events =[]
+  events = allRequests.map((request)=>{
+      let startMinutes = new Date(request.fromDate).getMinutes();
+      startMinutes = startMinutes <= 9 ? '0' + startMinutes : startMinutes
+  
+      let startHours = new Date(request.fromDate).getHours();
+      startHours = startHours <= 9 ? '0' + startHours : startHours
+  
+      let endMinutes = new Date(request.toDate).getMinutes();
+      endMinutes = endMinutes <= 9 ? '0' + endMinutes : endMinutes
+  
+      let endHours = new Date(request.toDate).getHours();
+      endHours = endHours <= 9 ? '0' + endHours : endHours
+  let bgColor = null
+  let borderColor = null
+  let txtColor = null
+    //   if(request.status == "tentative"){
+    //     bgColor = "rgba(58,87,232,0.2)"
+    //   } else if(request.status == "confirmed"){
+    //     bgColor = "rgb(86, 237, 48, 0.8)"
+    //     txtColor= "$fff"
+    //     borderColor= "#186a01"
+    //   } else if(request.status == "hounored"){
+    //     bgColor = "rgb(86, 237, 48, 0.8)"
+    //     txtColor="$fff"
+    //     borderColor= "#186a01"
+    //   }
+  
+      return  {
+        title: request.itemName,
+        // url: `viewrequest/${request._id}/${request.contactId}`,
+        description: "Helo",
+        start: moment(new Date(request.fromDate), 'YYYY-MM-DD').format('YYYY-MM-DD') + `T${startHours + ":" + startMinutes}:00.000Z`,
+        end: moment(new Date(request.toDate), 'YYYY-MM-DD').format('YYYY-MM-DD') + `T${endHours + ":" + endMinutes}:00.000Z`,
+        
+        backgroundColor: 'rgba(58,87,232,0.2)',
+        // backgroundColor: bgColor,
+        textColor: 'rgba(58,87,232,1)',
+        // textColor: txtColor,
+        borderColor: 'rgba(58,87,232,1)'
+        // borderColor: borderColor
+  }
+  })
+  
+  // console.log(events)
+      let calendarEl = document.getElementById('calendar1');
+      let calendar1 = new FullCalendar.Calendar(calendarEl, {
+        selectable: true,
+        plugins: ["timeGrid", "dayGrid", "list", "interaction"],
+        timeZone: "IST",
+        weekNumberCalculation: "ISO",
+        defaultView: "dayGridMonth",
+        contentHeight: "auto",
+      //   eventLimit: true,
+      //   dayMaxEvents: 4,
+        header: {
+            left: "prev,next today",
+            center: "title",
+            right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
+        },
+        dateClick: function (info) {
+            $('#schedule-start-date').val(info.dateStr)
+            $('#schedule-end-date').val(info.dateStr)
+            $('#date-event').modal('show')
+        },
+        events: events
+    });
+    calendar1.render();
+    });
+    
+  }
