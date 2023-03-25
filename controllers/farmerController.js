@@ -1,10 +1,19 @@
 
 const Farmer = require('../models/Farmer')
+const RentItem = require('../models/RentItem')
 
 
 exports.home = async function(req, res){
     if (req.session.user) {
-     res.send("display homepage")
+      if(req.session.user.loginType="farmer"){
+        let rentItem = new RentItem()
+       let rentItems = await rentItem.getOtherRentItems(req.session.user._id)
+        res.render("farmer/homepage-farmer",{
+          rentItems: rentItems
+        })
+      } else if(req.session.user.loginType="seller"){
+        res.send("display Seller homepage")
+      }
       } else {
         res.render('lock-screen')
       }
@@ -23,7 +32,7 @@ exports.login = function (req, res) {
     console.log(req.body)
     let farmer = new Farmer(req.body)
     farmer.login().then(function (result) {
-        req.session.user = { fName: farmer.data.fName, lName: farmer.data.lName, email: farmer.data.email, _id: farmer.data._id}
+        req.session.user = { fName: farmer.data.fName, lName: farmer.data.lName, email: farmer.data.email, _id: farmer.data._id, loginType:"farmer"}
         console.log("here")
         req.session.save(function () {
         res.redirect('/')
@@ -42,7 +51,7 @@ exports.login = function (req, res) {
 exports.register = function(req, res) {
     let farmer = new Farmer(req.body)
     farmer.register().then(() => {
-      req.session.user = { fName: farmer.data.fName, lName: farmer.data.lName, email: farmer.data.email, _id: farmer.data._id}
+      req.session.user = { fName: farmer.data.fName, lName: farmer.data.lName, email: farmer.data.email, _id: farmer.data._id, loginType:"farmer"}
       req.session.save(function() {
         res.redirect('/')
 
@@ -69,3 +78,6 @@ exports.register = function(req, res) {
     res.render("farmer/register-farmer")
   }
 
+exports.displayLenderForm =  function(req,res){
+res.render('farmer/lender-form')
+}

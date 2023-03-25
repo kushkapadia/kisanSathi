@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .qr-code{
+   
+        border-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+       margin-left:20px;      
+    }
+</style>
+</head>
+<body>
+    <div id="rent-qr"></div>
+    <h2>My Qr Code</h2>
+    <input type="text" value="<%=rentId%>"  id="id">
+    <div  class="qr-code" ></div> 
+</body>
+</html>
+
+
+
+<script src="/assets/js/hope-ui.js" defer></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+   
+    generate();
+
+function generate() {
+    let _id = document.querySelector("#id").value
+
+    var qrcode = new QRCode(document.querySelector(".qr-code"), {
+        text: `${_id}`,
+       
+        width: 180, //default 128
+        height: 180,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+} 
+</script>

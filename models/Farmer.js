@@ -1,5 +1,6 @@
 const farmersCollection = require('../db').collection('farmers')
 const bcrypt = require("bcryptjs")
+const { ObjectId } = require('mongodb')
 
 let Farmer = function (data) {
   this.data = data;
@@ -17,7 +18,7 @@ Farmer.prototype.cleanUp = function () {
     birthDate: this.data.birthDate,
     noOfItemsBorrowed: this.data.noOfItemsBorrowed,
     noOfItemsLent: this.data.noOfItemsLent,
-    reputationScore: this.data.reputationScore,
+    reputationScore: 0,
     documents:{
       aadhar: this.data.aadhar,
       pan: this.data.pan,
@@ -73,5 +74,10 @@ Farmer.prototype.register = function() {
 Farmer.prototype.getAllFarmers = async function(){
 let farmers=  await farmersCollection.find({}).toArray()
 return farmers
+}
+
+Farmer.prototype.getFarmerById = async function(id){
+  let farmerDoc = await farmersCollection.findOne({_id: new ObjectId(id)})
+  return farmerDoc
 }
 module.exports = Farmer
