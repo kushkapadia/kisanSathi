@@ -19,6 +19,7 @@ Farmer.prototype.cleanUp = function () {
     noOfItemsBorrowed: this.data.noOfItemsBorrowed,
     noOfItemsLent: this.data.noOfItemsLent,
     reputationScore: 0,
+    lenderReputationScore:0,
     documents:{
       aadhar: this.data.aadhar,
       pan: this.data.pan,
@@ -80,4 +81,10 @@ Farmer.prototype.getFarmerById = async function(id){
   let farmerDoc = await farmersCollection.findOne({_id: new ObjectId(id)})
   return farmerDoc
 }
+
+Farmer.prototype.changeLendorReputation = async function(id, value){
+  await farmersCollection.updateOne({_id: new ObjectId(id)},  { $inc: {  lenderReputationScore: Number(value) } })
+}
+
+
 module.exports = Farmer

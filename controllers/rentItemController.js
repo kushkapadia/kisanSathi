@@ -21,27 +21,11 @@ req.body.lenderId = req.session.user._id
 }
 
 
-exports.dsiplayQrCode = function(req, res){
-res.render('farmer/qr-code', {
-    rentId: req.params.id
-})
-}
-
-exports.updateRentStatus = async function(req, res){
-  let rent = new Rent()
-  let rentDoc = await  rent.getRentById(req.body.rentId)
-  if(rentDoc.rentStatus == "notStarted"){
-    await rent.changeStatusToStarted(req.body.rentId)
-  res.json("started")
 
 
-  } else{
-  await  rent.changeStatusToCompleted(req.body.rentId)
-  res.json("completed")
 
 
-  }
-}
+  
 
 
 exports.displayItemProfile = async function(req, res){
@@ -63,3 +47,4 @@ res.render('farmer/published-items', {
   rentItems: rentItems
 })
 }
+

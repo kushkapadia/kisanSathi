@@ -30,17 +30,20 @@
                                 <div class="d-flex flex-wrap align-items-center" >
                                 </div>
 
-                                <form action="/" method="POST">
+                                <form action="/change-lender-reputation/-50" method="POST">
                                     <label for="custombutton" class="form-label">-50 rep</label>
+                                    <input type="hidden" name="lenderId" value="<%=lenderId%>">
                                     <input type="image" src="/assets/images/sad_face.png" class="form-button" id="customButton"><br>
                                 </form>
 
-                                <form action="/" method="POST">
+                                <form action="/change-lender-reputation/0" method="POST">
+                                    <input type="hidden"  name="lenderId" value="<%=lenderId%>">
                                     <label for="custombutton" class="form-label">0 rep</label>
                                     <input type="image" src="/assets/images/neutral_face.png" class="form-button" id="customButton"><br>
                                 </form>
 
-                                <form action="/" method="POST">
+                                <form action="/change-lender-reputation/50" method="POST">
+                                    <input type="hidden" name="lenderId" value="<%=lenderId%>">
                                     <label for="custombutton" class="form-label">+50 rep</label>
                                     <input type="image" src="/assets/images/happy_face.png" class="form-button" id="customButton"><br>
                                 </form>

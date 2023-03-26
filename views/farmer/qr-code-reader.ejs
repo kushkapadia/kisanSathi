@@ -31,12 +31,12 @@
   }).then(async (response)=>{
  let data = await response.json()
     console.log(data)
-   if(data == "started"){
+   if(data.status == "started"){
     location.replace('/')
 
-   } else if(data == "completed"){
-    alert("Completed~!")
-    location.replace('/')
+   } else if(data.status == "completed"){
+    location.replace(`/show-rent-summary/${decodedText}`)
+    // location.replace(`/lendor-review-page/${data.lenderId}`)
 
    }
   });

@@ -6,7 +6,7 @@ const sellerController = require('./controllers/sellerController')
 const chatController = require('./controllers/chatController')
 const requestController = require('./controllers/requestController')
 const rentItemController = require('./controllers/rentItemController')
-const rentController = require('./controllers/rentItemController')
+const rentController = require('./controllers/rentController')
 
 //endpoint api //hit
 router.get('/', farmerController.home)
@@ -75,27 +75,17 @@ router.get('/getMyApprovedRequests', requestController.getMyApprovedRequests)
 
 router.get('/getMyApprovedRequests', requestController.getMyApprovedRequests)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.get('/borrower-res-page', function(req, res){
 res.render("farmer/borrower-res-page")
 })
+
+router.get('/lendor-review-page/:id', function(req, res){
+    res.render('farmer/review-page',{
+        lenderId : req.params.id
+    })
+})
+
+router.get('/show-rent-summary/:id', rentController.showRentSummary)
+
+router.post('/change-lender-reputation/:value', farmerController.changeLendorReputation)
 module.exports = router

@@ -27,7 +27,8 @@ let requestDoc = await request.changeRequestStatus(req.params.id, req.body.statu
 if(requestDoc.value.requestStatus == "approved"){
   let data = {
     borrowerId : req.params.id,
-    lenderId : req.session.user._id
+    lenderId : req.session.user._id,
+    itemId: requestDoc.value.rentItemId,
   }
   console.log(data)
   let rent = new Rent(data)

@@ -13,6 +13,7 @@ Rent.prototype.cleanUp = function() {
     this.data = {
         borrowerId : new ObjectId(this.data.borrowerId),
         lenderId : new ObjectId(this.data.lenderId),
+        itemId: new ObjectId(this.data.itemId),
         rentAmount : null,
         rentDuration : null,
         PaymentStatus : "pending",
