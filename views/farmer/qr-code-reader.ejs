@@ -32,7 +32,7 @@
  let data = await response.json()
     console.log(data)
    if(data.status == "started"){
-    location.replace('/')
+    location.replace(`/upload-pics/${decodedText}`)
 
    } else if(data.status == "completed"){
     location.replace(`/show-rent-summary/${decodedText}`)

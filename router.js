@@ -1,6 +1,11 @@
 const express= require('express')
 //middleware function, which allows you to define multiple route handlers on a single path prefix.
 const router = express.Router()
+
+var Publishable_Key = 'pk_test_51MpDLQSCZQPwhvX4lyeSRt379sdip9IJYFt0JgYThAvvDXCBzUp1ERrUzezmJZ6PDu8rfn12wOOif0BkHb2va0fz0057TTbdS7'
+var Secret_Key = 'sk_test_51MpDLQSCZQPwhvX40Cnl3CppBjfomAusJDHVpSucJO0XCjKQGjtry1V7NaIqpRv0hi33WeqaIoAbpl0PtTySYGQB00XWVfSGvT'
+
+
 const farmerController = require('./controllers/farmerController')
 const sellerController = require('./controllers/sellerController')
 const chatController = require('./controllers/chatController')
@@ -42,12 +47,8 @@ router.get('/qr-reader-page', function(req, res){
 })
 router.get('/rent-qr-code/:id', rentController.dsiplayQrCode)
 
-router.get('/chat/:id', function(req, res){
-    console.log(req.params.id)
-    res.render('farmer/chat',{
-        rId : req.params.id 
-    })
-})
+router.get('/chat/:id', farmerController.displayChatPage )
+
 
 router.get('/allFarmers', farmerController.getAllFarmers)
 router.get('/view-item/:id', rentItemController.displayItemProfile )
@@ -95,8 +96,16 @@ router.get('/payment', function(req, res){
 res.render("farmer/payment")
 })
 
-router.post('/invoice', function(req, res){
+router.post('/payment', function(req, res){
 res.render("farmer/invoice")
+})
+
+router.post('/stripe-page/' ,function(req, res){
+res.render("farmer/stripe-page", {
+    lenderId: req.body.lenderId,
+        totalBill: req.body.totalBill,    
+        key: Publishable_Key      
+})
 })
 
 router.get('/lendor-review-page/:id', function(req, res){
@@ -106,6 +115,9 @@ router.get('/lendor-review-page/:id', function(req, res){
 })
 
 router.get('/show-rent-summary/:id', rentController.showRentSummary)
-
+router.get('/upload-pics/:id', rentController.displayUploadPicsPage)
 router.post('/change-lender-reputation/:value', farmerController.changeLendorReputation)
+router.get('/view-images/:id', rentController.viewImages)
+router.post('/upload-item-pics/:id', rentController.uploadMultiplePics)
+router.get('/view-completed-rent', rentController.showRentTable)
 module.exports = router

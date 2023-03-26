@@ -53,7 +53,7 @@
                            <td><%=request.toDate.getDate()%>/<%=request.toDate.getMonth() +1%>/<%=request.toDate.getFullYear()%></td>
                            <td><%=request.itemName%></td>
                            <td><%=request.totalRentingAmount%></td>
-                           <td><%=request.rating%></td>
+                           <td><%=request.reputationScore%></td>
                            <td class="d-flex align-items-center justify-content-between">
                               <form class="me-3" method="POST" action="/change-request-status/<%=request._id%>">
                                  <input type="hidden" name="status" value="approved" id="">

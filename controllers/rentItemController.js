@@ -17,7 +17,7 @@ req.body.lenderId = req.session.user._id
 
     let rentItem = new RentItem(req.body)
     await rentItem.leaseItem()
-    res.send("Uploaded")
+    res.redirect("/")
 }
 
 

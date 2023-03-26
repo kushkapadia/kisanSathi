@@ -17,6 +17,6 @@ if(document.querySelector("#qr-reader")){
 }
 
 if(document.querySelector("#askForRentForm")){
-    alert("---")
+    
     new AskForRentForm()
 }

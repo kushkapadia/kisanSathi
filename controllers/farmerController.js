@@ -82,10 +82,20 @@ exports.displayLenderForm =  function(req,res){
 res.render('farmer/lender-form')
 }
 
-exports.changeLendorReputation = async function(req, res){
+exports.changeLendorReputation = async function(req, res, next){
   console.log(req.body.lenderId)
   console.log(req.params.value)
   let farmer = new Farmer()
  await farmer.changeLendorReputation(req.body.lenderId, req.params.value)
- res.redirect("/")
+ next()
 }
+
+exports.displayChatPage = async function(req, res){
+  console.log(req.params.id)
+  let farmer = new Farmer()
+let farmerDoc = await farmer.getFarmerById(req.params.id)
+  res.render('farmer/chat',{
+      rId : req.params.id ,
+      farmerDoc : farmerDoc
+  }
+  )}

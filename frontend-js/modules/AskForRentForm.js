@@ -23,7 +23,7 @@ export default class AskForRentForm{
             this.amountField.value = timeInMs * rateInMs
 
 
-            alert("Clicked")
+            
                 if(this.fromDate.value && this.toDate.value){
                   if (new Date(this.fromDate.value).getTime() > new Date(this.toDate.value).getTime()) {
                     this.statusBox.innerHTML = `<p style="color: red;">Start Date cannot be greater </p>`

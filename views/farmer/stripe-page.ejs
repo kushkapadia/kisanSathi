@@ -1,0 +1,20 @@
+<%- include('../includes/header-farmer.ejs') %>
+
+<form action="payment" method="POST">
+
+    <% let bill = totalBill * 100 %>
+    <input type="hidden" id="totalBill">
+<script src="//checkout.stripe.com/v2/checkout.js"
+   
+class="stripe-button"
+data-key="<%= key %>"
+data-amount="<%=bill%>"
+data-currency="inr"
+data-name="KisanSathi"
+data-description="Buy Tractor"
+data-locale="auto" >
+</script>
+</form>
+
+
+<%- include('../includes/footer-farmer.ejs') %>

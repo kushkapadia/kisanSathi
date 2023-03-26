@@ -42,4 +42,20 @@ Rent.prototype.changeStatusToCompleted = async function(rentId){
    await rentsCollection.findOneAndUpdate({_id:new ObjectId(rentId)}, {$set:{"rentDuration.endTime": new Date(), rentStatus: "completed" }})
 }
 
+Rent.prototype.uploadItemPicNames = async function(id, arr){
+    await rentsCollection.findOneAndUpdate({_id: new ObjectId(id)}, {$set:{itemPics: arr}})
+}
+
+
+Rent.prototype.getMyRent = async function(id){
+  let rents = await rentsCollection.find({borrowerId: new  ObjectId(id), rentStatus: "completed"}).toArray()
+  return rents
+}
+
+Rent.prototype.getImagesName = async function(id){
+    let rentDoc = await rentsCollection.findOne({_id: new ObjectId(id)})
+    console.log(rentDoc)
+    return rentDoc.itemPics
+}
+
 module.exports = Rent

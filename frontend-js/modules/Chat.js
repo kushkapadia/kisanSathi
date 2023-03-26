@@ -60,7 +60,7 @@ axios.post('/send-chat', {
     
 
     startFetch(){
-        alert("start called")
+
     }
 
     fetchMessages = ()=>{

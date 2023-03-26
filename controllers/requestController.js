@@ -18,7 +18,7 @@ exports.request = async function(req, res){
   req.body.borrowerId = req.session.user._id
     let request = new Request(req.body)
    await request.request()
-    res.send("requested chk db")
+    res.redirect("/")
 }
 
 exports.changeStatus = async function(req, res){
@@ -26,7 +26,7 @@ exports.changeStatus = async function(req, res){
 let requestDoc = await request.changeRequestStatus(req.params.id, req.body.status)
 if(requestDoc.value.requestStatus == "approved"){
   let data = {
-    borrowerId : req.params.id,
+    borrowerId :requestDoc.value.borrowerId,
     lenderId : req.session.user._id,
     itemId: requestDoc.value.rentItemId,
   }
