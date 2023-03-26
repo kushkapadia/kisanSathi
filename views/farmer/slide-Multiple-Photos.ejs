@@ -70,9 +70,13 @@
                           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
 <% let count = 0 %>
+
+<div class="carousel-item active">
+    <img src="/uploads/<%=images[count]%>" width="220px" height="500px" class="d-block w-100" alt="...">
+  </div>
                             <%    images.forEach((image)=>{ %>
-                                    <div class="carousel-item active">
-                                        <img src="/uploads/images[count]" width="220px" height="500px" class="d-block w-100" alt="...">
+                                    <div class="carousel-item ">
+                                        <img src="/uploads/<%=images[count]%>" width="220px" height="500px" class="d-block w-100" alt="...">
                                       </div>
                             <% count++ %>
                                       <%   }) %>
