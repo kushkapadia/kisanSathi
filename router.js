@@ -79,6 +79,26 @@ router.get('/borrower-res-page', function(req, res){
 res.render("farmer/borrower-res-page")
 })
 
+
+
+router.get('/payment', function(req, res){
+res.render("farmer/payment")
+})
+
+router.post('/invoice', function(req, res){
+res.render("farmer/invoice")
+})
+
+
+
+router.get('/payment', function(req, res){
+res.render("farmer/payment")
+})
+
+router.post('/invoice', function(req, res){
+res.render("farmer/invoice")
+})
+
 router.get('/lendor-review-page/:id', function(req, res){
     res.render('farmer/review-page',{
         lenderId : req.params.id
